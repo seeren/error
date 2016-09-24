@@ -1,0 +1,30 @@
+{
+    "name": "seeren/error",
+    "description": "Handle and log error",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Cyril Ichti",
+        "email": "consultant@seeren.fr",
+        "homepage" : "http://www.seeren.fr"
+      }
+    ],
+    "repositories": [
+      {
+         "type": "vcs",
+         "url": "vendor/seeren/src/log"
+      }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=7.0.1",
+      "seeren/log": "~1.0"
+    },
+    "autoload": {
+      "psr-4": {
+		"Seeren\\Error\\": "src/",
+		"Seeren\\Error\\Test\\": "test/"
+      }
+  }
+}
