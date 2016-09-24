@@ -19,7 +19,7 @@
     "minimum-stability": "dev",
     "require": {
       "php": ">=7.0.1",
-      "seeren/log": "~1.0"
+      "seeren/log": "*"
     },
     "autoload": {
       "psr-4": {
