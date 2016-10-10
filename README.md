@@ -1,35 +1,35 @@
 ## Seeren\Error\
 
-Handle and log errors and fatal error.
+Handle and log errors.
 
-### Code Example
+#### Code Example
 
-Create logger and use log of different level. LogLevelInterface provide method for determine level off an error type.
+Create logger and use log level. LogLevelInterface provide method for determine level of erros.
 
-#### Seeren\Error\ErrorLogger
+### Seeren\Error\ErrorLogger
 
 ```php
  
 use Seeren\Error\ErrorLogger;
 use Seeren\Log\{Daily, LogLevel};
 
-$handler = new ErrorLogger(new Daily, new LogLevel);
-$handler->register();
+$errorLogger = new ErrorLogger(new Daily, new LogLevel);
+$errorLogger->register();
 
 // Daily will write the log for the error triggered 
 trigger_error("message", E_USER_ERROR);
 
-$handler->unregister();
+$errorLogger->unregister();
 ```
 
-### Running the tests
+#### Running the tests
 
 Running tests with phpunit in the test folder.
 
 ```
-$ phpunit seeren/src/error/test/ErrorLoggerTest.php
+$ phpunit test/ErrorLoggerTest.php
 ```
 
-### License
+#### License
 
-* [MIT](https://github.com/Seeren/Seeren/blob/master/LICENSE)
+[MIT](https://github.com/Seeren/Seeren/blob/master/LICENSE)
