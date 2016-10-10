@@ -10,12 +10,6 @@
         "homepage" : "http://www.seeren.fr"
       }
     ],
-    "repositories": [
-      {
-         "type": "vcs",
-         "url": "vendor/seeren/src/log"
-      }
-    ],
     "minimum-stability": "dev",
     "require": {
       "php": ">=7.0.1",
