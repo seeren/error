@@ -15,7 +15,7 @@
 
 namespace Seeren\Error;
 
-use Seeren\Log\Logger;
+use Psr\Log\LoggerInterface;
 use Seeren\Log\LogLevelInterface;
 
 /**
@@ -30,7 +30,7 @@ final class ErrorLogger extends Handler implements HandlerInterface
 
    protected
        /**
-        * @var Logger logger
+        * @var LoggerInterface logger
         */
        $logger,
        /**
@@ -41,12 +41,12 @@ final class ErrorLogger extends Handler implements HandlerInterface
     /**
      * Construct ErrorLogger
      * 
-     * @param Logger $logger logger
+     * @param LoggerInterface $logger logger
      * @param LogLevelInterface $logLevel log level
      * @return null
      */
     public final  function __construct(
-        Logger $logger,
+        LoggerInterface $logger,
         LogLevelInterface $logLevel)
     {
         parent::__construct();
