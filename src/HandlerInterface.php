@@ -32,11 +32,11 @@ interface HandlerInterface
       /**
        * @var string file key
        */
-      FILE    = "file",
+      FILE = "file",
       /**
        * @var string line key
        */
-      LINE    = "line",
+      LINE = "line",
       /**
        * @var string message key
        */
@@ -44,14 +44,7 @@ interface HandlerInterface
       /**
        * @var string type key
        */
-      TYPE    = "type";
-
-   /**
-    * Shutdown method
-    *
-    * @return null
-    */
-   public function shutdown();
+      TYPE = "type";
 
    /**
     * Template method Handle
@@ -69,5 +62,26 @@ interface HandlerInterface
        string $file,
        int $line,
        array $context = []);
+
+   /**
+    * Shutdown method
+    *
+    * @return null
+    */
+   public function shutdown();
+
+   /**
+    * Register
+    *
+    * @return HandlerInterface static
+    */
+   public function register(): self;
+   
+   /**
+    * Unregister
+    *
+    * @return HandlerInterface static
+    */
+   public function unregister(): self;
 
 }
