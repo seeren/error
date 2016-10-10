@@ -54,7 +54,7 @@ abstract class Handler
    /**
     * Register
     *
-    * @return self
+    * @return HandlerInterface static
     */
    public final function register(): HandlerInterface
    {
@@ -66,7 +66,7 @@ abstract class Handler
    /**
     * Unregister
     *
-    * @return self
+    * @return HandlerInterface static
     */
    public final function unregister(): HandlerInterface
    {
