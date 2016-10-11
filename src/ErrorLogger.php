@@ -25,7 +25,7 @@ use Seeren\Log\LogLevelInterface;
  * @package Error
  * @final
  */
-final class ErrorLogger extends Handler implements HandlerInterface
+final class ErrorLogger extends AbstractHandler implements HandlerInterface
 {
 
    protected
