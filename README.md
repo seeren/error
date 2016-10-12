@@ -9,10 +9,6 @@ Create logger and use log level. LogLevelInterface provide method for determine 
 ### Seeren\Error\ErrorLogger
 
 ```php
- 
-use Seeren\Error\ErrorLogger;
-use Seeren\Log\{Daily, LogLevel};
-
 $errorLogger = new ErrorLogger(new Daily, new LogLevel);
 $errorLogger->register();
 
