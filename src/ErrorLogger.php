@@ -23,9 +23,8 @@ use Seeren\Log\LogLevelInterface;
  * 
  * @category Seeren
  * @package Error
- * @final
  */
-final class ErrorLogger extends AbstractHandler implements HandlerInterface
+class ErrorLogger extends AbstractHandler implements HandlerInterface
 {
 
    protected
