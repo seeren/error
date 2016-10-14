@@ -44,7 +44,7 @@ class ErrorLogger extends AbstractHandler implements HandlerInterface
      * @param LogLevelInterface $logLevel log level
      * @return null
      */
-    public final  function __construct(
+    public  function __construct(
         LoggerInterface $logger,
         LogLevelInterface $logLevel)
     {
