@@ -35,7 +35,7 @@ class ErrorLoggerTest extends \PHPUnit_Framework_TestCase
     */
    public final function testHandle()
    {
-       $logger = (new ReflectionClass(Daily::class))->newInstanceArgs([]);
+       $logger = (new ReflectionClass(Daily::class))->newInstanceArgs([__DIR__]);
        $logLevel = (new ReflectionClass(LogLevel::class))->newInstanceArgs([]);
        $error = (new ReflectionClass(ErrorLogger::class))
                 ->newInstanceArgs([$logger, $logLevel]);
