@@ -10,7 +10,7 @@
  *
  * @copyright (c) Cyril Ichti <consultant@seeren.fr>
  * @link http://www.seeren.fr/ Seeren
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 namespace Seeren\Error;
@@ -32,11 +32,11 @@ interface HandlerInterface
       /**
        * @var string file key
        */
-      FILE = "file",
+      FILE    = "file",
       /**
        * @var string line key
        */
-      LINE = "line",
+      LINE    = "line",
       /**
        * @var string message key
        */
@@ -44,7 +44,7 @@ interface HandlerInterface
       /**
        * @var string type key
        */
-      TYPE = "type";
+      TYPE    = "type";
 
    /**
     * Template method Handle
