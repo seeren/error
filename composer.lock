@@ -1,0 +1,107 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "719b4aba1bc46647fc0e51befecaddae",
+    "content-hash": "e25ebf22bfe02bd2bda55ed33392606d",
+    "packages": [
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10 12:19:37"
+        },
+        {
+            "name": "seeren/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seeren/log.git",
+                "reference": "b8207230662327e8bb0e4019059bacf87d252f8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seeren/log/zipball/b8207230662327e8bb0e4019059bacf87d252f8d",
+                "reference": "b8207230662327e8bb0e4019059bacf87d252f8d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.1",
+                "psr/log": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Seeren\\Log\\": "src/",
+                    "Seeren\\Log\\Test\\": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cyril Ichti",
+                    "email": "consultant@seeren.fr",
+                    "homepage": "http://www.seeren.fr"
+                }
+            ],
+            "description": "Psr-3 implementation",
+            "time": "2016-10-17 20:34:23"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.0.1"
+    },
+    "platform-dev": []
+}
