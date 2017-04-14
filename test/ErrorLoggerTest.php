@@ -27,7 +27,7 @@ use ReflectionClass;
  * @package Error
  * @subpackage Test
  */
-class ErrorLoggerTest extends \PHPUnit_Framework_TestCase
+class ErrorLoggerTest extends \PHPUnit\Framework\TestCase
 {
 
    /**
