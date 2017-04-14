@@ -20,5 +20,8 @@
 		"Seeren\\Error\\": "src/",
 		"Seeren\\Error\\Test\\": "test/"
       }
-  }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.1"
+    }
 }
