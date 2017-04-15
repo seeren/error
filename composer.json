@@ -1,6 +1,7 @@
 {
     "name": "seeren/error",
     "description": "Handle and log error",
+    "keywords": ["psr-3", "error-handling "],
     "type": "library",
     "license": "MIT",
     "authors": [
