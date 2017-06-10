@@ -1,7 +1,7 @@
 {
-    "name": "seeren/cache",
-    "description": "Manage cache items",
-    "keywords": ["psr-6", "cache", "pool", "item"],
+    "name": "seeren/error",
+    "description": "Handle and log error",
+    "keywords": ["error-log ", "error-handling"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -14,17 +14,16 @@
     "minimum-stability": "dev",
     "require": {
       "php": ">=7.0.1",
-      "psr/cache": "1.0.x-dev",
-      "seeren/http": "dev-master"
+      "seeren/log": "dev-master"
     },
     "autoload": {
       "psr-4": {
-		"Seeren\\Cache\\": "src/"
+		"Seeren\\Error\\": "src/"
       }
     },
     "autoload-dev": {
       "psr-4": {
-		"Seeren\\Cache\\Test\\": "test/"
+		"Seeren\\Error\\Test\\": "test/"
       }
     },
     "require-dev": {
