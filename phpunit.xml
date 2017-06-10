@@ -8,7 +8,7 @@
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
          verbose="true">
-    <testsuite name="error">
+    <testsuite name="error-logger">
         <directory suffix="Test.php">./test</directory>
     </testsuite>
     <logging>
