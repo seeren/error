@@ -10,7 +10,7 @@
  *
  * @copyright (c) Cyril Ichti <consultant@seeren.fr>
  * @link http://www.seeren.fr/ Seeren
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 namespace Seeren\Error;
@@ -37,11 +37,13 @@ abstract class AbstractHandler
    /**
     * Shutdown method
     *
+    * @param array $error last error
     * @return null
     */
-   public final function shutdown()
+   public final function shutdown(array $error = null)
    {
-       if (($error = error_get_last())) {
+       if ($error
+        || ($error = error_get_last())) {
            $this->handle(
                $error[static::TYPE],
                $error[static::MESSAGE],
@@ -74,4 +76,5 @@ abstract class AbstractHandler
        register_shutdown_function(function () {});
        return $this;
    }
+
 }
