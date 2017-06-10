@@ -32,14 +32,14 @@ abstract class AbstractHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * Get handler
      *
-     * @return HandlerInterface pool
+     * @return HandlerInterface handler
      */
    abstract protected function getHandler(): HandlerInterface;
 
     /**
      * Get errors
      *
-     * @return HandlerInterface pool
+     * @return array errors
      */
    abstract protected function getErrors(): array;
 
