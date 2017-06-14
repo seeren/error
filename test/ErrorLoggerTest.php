@@ -84,7 +84,7 @@ class ErrorLoggerTest extends AbstractHandlerTest
     */
    public function testHandle()
    {
-       parent::assertHandle();
+       parent::testHandle();
    }
 
    /**

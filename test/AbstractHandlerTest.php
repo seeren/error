@@ -44,9 +44,9 @@ abstract class AbstractHandlerTest extends \PHPUnit\Framework\TestCase
    abstract protected function getErrors(): array;
 
    /**
-    * Assert handle
+    * Test handle
     */
-   protected function assertHandle()
+   public function testHandle()
    {
        $handler = $this->getHandler();
        $nErrors = count($this->getErrors());
