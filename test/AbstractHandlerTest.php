@@ -10,7 +10,7 @@
  *
  * @copyright (c) Cyril Ichti <consultant@seeren.fr>
  * @link https://github.com/seeren/cache
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 namespace Seeren\Error\Test;

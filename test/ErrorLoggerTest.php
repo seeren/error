@@ -10,7 +10,7 @@
  *
  * @copyright (c) Cyril Ichti <consultant@seeren.fr>
  * @link http://www.seeren.fr/ Seeren
- * @version 2.0.1
+ * @version 2.0.2
  */
 
 namespace Seeren\Error\Test;
