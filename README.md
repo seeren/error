@@ -18,7 +18,7 @@ Registring ErrorLogger, errors and fatal error will not be displayed anymore and
 ```php
 (new ErrorLogger(new Daily, new LogLevel))->register();
 ```
-You can customize this component choosing at construction a loggerthat implements psr LoggerInterface
+You can customize this component choosing at construction a logger that implements psr LoggerInterface
 
 ## Run Unit tests
 Install dependencies
