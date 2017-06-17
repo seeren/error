@@ -4,7 +4,7 @@
 **Handle and log errors**
 
 ## Features
-* Log errors
+* Log errors and fatal error
 ## Installation
 Require this package with [composer](https://getcomposer.org/)
 ```
@@ -14,12 +14,11 @@ composer require seeren/error dev-master
 ## Handler Usage
 
 #### `Seeren\Error\ErrorLogger`
-Errors and fatal error can be handled and logged. After registration, default php error handler is no more fired and errors are not displayed.
+Registring ErrorLogger, errors and fatal error will not be displayed anymore and they will be logged in a file
 ```php
-$handler = (new ErrorLogger(new Daily, new LogLevel))->register();
-trigger_error("message", E_USER_ERROR);
-$handler->unregister();
+(new ErrorLogger(new Daily, new LogLevel))->register();
 ```
+You can customize this component choosing at construction a loggerthat implements psr LoggerInterface
 
 ## Run Unit tests
 Install dependencies
