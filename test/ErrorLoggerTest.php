@@ -132,7 +132,7 @@ class ErrorLoggerTest extends AbstractHandlerTest
            HandlerInterface::FILE    => "file",
            HandlerInterface::LINE    => 133,
        ]);
-       $this->assertTrue(++$nLogs  === count($this->getErrors()));
+       $this->assertTrue(++$nErrors  === count($this->getErrors()));
    }
 
    /**
@@ -146,7 +146,7 @@ class ErrorLoggerTest extends AbstractHandlerTest
        $handler = $this->getHandler();
        $nErrors = count($this->getErrors());
        $handler->shutdown();
-       $this->assertFalse(++$nLogs  === count($this->getErrors()));
+       $this->assertFalse(++$nErrors  === count($this->getErrors()));
    }
 
 }
