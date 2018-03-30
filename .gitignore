@@ -1,5 +1,7 @@
 /.settings/
+/public/
 /test/log/
 /vendor/
 /.buildpath
 /.project
+/phpunit.xml
