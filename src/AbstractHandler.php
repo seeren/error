@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This file contain Seeren\Error\AbstractHandler class
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @copyright (c) Cyril Ichti <consultant@seeren.fr>
+ * @author (c) Cyril Ichti <consultant@seeren.fr>
  * @link https://github.com/seeren/error
  * @version 1.0.2
  */
@@ -26,24 +25,19 @@ abstract class AbstractHandler
 {
 
    /**
-    * Construct Handler
-    * 
-    * @return null
+    * @construct
     */
    protected function __construct()
    {
    }
 
    /**
-    * Shutdown method
-    *
-    * @param array $error last error
-    * @return null
+    * {@inheritDoc}
+    * @see \Seeren\Error\HandlerInterface::shutdown()
     */
    public final function shutdown(array $error = null)
    {
-       if ($error
-        || ($error = error_get_last())) {
+       if ($error || ($error = error_get_last())) {
            $this->handle(
                $error[static::TYPE],
                $error[static::MESSAGE],
@@ -54,9 +48,8 @@ abstract class AbstractHandler
    }
 
    /**
-    * Register
-    *
-    * @return HandlerInterface static
+    * {@inheritDoc}
+    * @see \Seeren\Error\HandlerInterface::register()
     */
    public final function register(): HandlerInterface
    {
@@ -66,9 +59,8 @@ abstract class AbstractHandler
    }
 
    /**
-    * Unregister
-    *
-    * @return HandlerInterface static
+    * {@inheritDoc}
+    * @see \Seeren\Error\HandlerInterface::unregister()
     */
    public final function unregister(): HandlerInterface
    {

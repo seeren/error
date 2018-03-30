@@ -11,35 +11,29 @@ Require this package with [composer](https://getcomposer.org/)
 composer require seeren/error dev-master
 ```
 
-## Handler Usage
+## Usage
 
 #### `Seeren\Error\ErrorLogger`
-Registring ErrorLogger, errors and fatal error will not be displayed anymore and they will be logged in a file
+Register error handler
 ```php
-(new ErrorLogger(new Daily, new LogLevel))->register();
+$errorLogger->register();
 ```
 
-## Run Unit tests
-Install dependencies
+Log with Psr\Log\LoggerInterface
+```php
+$errorLogger = new ErrorLogger(new Daily(__DIR__), new LogLevel);
 ```
-composer update
-```
-Run [phpunit](https://phpunit.de/) with [Xdebug](https://xdebug.org/) enabled and [OPcache](http://php.net/manual/fr/book.opcache.php) disabled for coverage
+
+## Run tests
+Run [phpunit](https://phpunit.de/) with [Xdebug](https://xdebug.org/) enable and [OPcache](http://php.net/manual/fr/book.opcache.php) disable
 ```
 ./vendor/bin/phpunit
 ```
 ## Run Coverage
-Install dependencies
+Run [coveralls](https://coveralls.io/)
 ```
-composer update
+./vendor/bin/php-coveralls -v
 ```
-Run [coveralls](https://coveralls.io/) for check coverage
-```
-./vendor/bin/coveralls -v
-```
-
-##  Contributors
-* **Cyril Ichti** - *Initial work* - [seeren](https://github.com/seeren)
 
 ## License
 This project is licensed under the **MIT License** - see the [license](LICENSE) file for details.

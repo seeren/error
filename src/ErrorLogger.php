@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This file contain Seeren\Error\ErrorLogger class
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @copyright (c) Cyril Ichti <consultant@seeren.fr>
+ * @author (c) Cyril Ichti <consultant@seeren.fr>
  * @link https://github.com/seeren/error
  * @version 1.0.1
  */
@@ -29,20 +28,17 @@ class ErrorLogger extends AbstractHandler implements HandlerInterface
 
    protected
        /**
-        * @var LoggerInterface logger
+        * @var LoggerInterface
         */
        $logger,
        /**
-        * @var LogLevelInterface log level
+        * @var LogLevelInterface
         */
        $logLevel;
 
     /**
-     * Construct ErrorLogger
-     * 
      * @param LoggerInterface $logger logger
      * @param LogLevelInterface $logLevel log level
-     * @return null
      */
     public  function __construct(
         LoggerInterface $logger,
@@ -54,14 +50,8 @@ class ErrorLogger extends AbstractHandler implements HandlerInterface
     }
 
     /**
-     * Template method Handle
-     *
-     * @param int $type error code
-     * @param string $message error message
-     * @param string $file error file
-     * @param int $line error line
-     * @param array $context error context
-     * @return null
+     * {@inheritDoc}
+     * @see \Seeren\Error\HandlerInterface::handle()
      */
     public final function handle(
         int $type,

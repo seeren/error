@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This file contain Seeren\Error\Test\AbstractHandlerTest class
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @copyright (c) Cyril Ichti <consultant@seeren.fr>
+ * @author (c) Cyril Ichti <consultant@seeren.fr>
  * @link https://github.com/seeren/cache
  * @version 1.0.2
  */
@@ -30,16 +29,14 @@ abstract class AbstractHandlerTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
-     * Get handler
-     *
-     * @return HandlerInterface handler
+     * @return HandlerInterface
      */
    abstract protected function getHandler(): HandlerInterface;
 
     /**
      * Get errors
      *
-     * @return array errors
+     * @return array
      */
    abstract protected function getErrors(): array;
 

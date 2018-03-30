@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This file contain Seeren\Error\Test\ErrorLoggerTest class
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @copyright (c) Cyril Ichti <consultant@seeren.fr>
+ * @author (c) Cyril Ichti <consultant@seeren.fr>
  * @link http://www.seeren.fr/ Seeren
  * @version 2.0.2
  */
@@ -34,13 +33,11 @@ class ErrorLoggerTest extends AbstractHandlerTest
 
     private
         /**
-         * @var LoggerInterface logger
+         * @var LoggerInterface
          */
         $logger;
 
     /**
-     * Get logger
-     *
      * @return HandlerInterface pool
      */
     private function getLogger(): LoggerInterface
@@ -55,9 +52,8 @@ class ErrorLoggerTest extends AbstractHandlerTest
     }
 
     /**
-     * Get handler
-     *
-     * @return HandlerInterface pool
+     * {@inheritDoc}
+     * @see \Seeren\Error\Test\AbstractHandlerTest::getHandler()
      */
     protected final function getHandler(): HandlerInterface
     {
@@ -68,9 +64,8 @@ class ErrorLoggerTest extends AbstractHandlerTest
     }
 
     /**
-     * Get errors
-     *
-     * @return HandlerInterface pool
+     * {@inheritDoc}
+     * @see \Seeren\Error\Test\AbstractHandlerTest::getErrors()
      */
     protected final function getErrors(): array
     {

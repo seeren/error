@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This file contain Seeren\Error\HandlerInterface interface
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @copyright (c) Cyril Ichti <consultant@seeren.fr>
+ * @author (c) Cyril Ichti <consultant@seeren.fr>
  * @link https://github.com/seeren/error
  * @version 1.0.2
  */
@@ -25,36 +24,38 @@ interface HandlerInterface
 {
 
    const
+
       /**
-       * @var string context key
+       * @var string
        */
       CONTEXT = "context",
+
       /**
-       * @var string file key
+       * @var string
        */
       FILE    = "file",
+
       /**
-       * @var string line key
+       * @var string
        */
       LINE    = "line",
+
       /**
-       * @var string message key
+       * @var string
        */
       MESSAGE = "message",
+
       /**
-       * @var string type key
+       * @var string
        */
       TYPE    = "type";
 
    /**
-    * Template method Handle
-    *
-    * @param int $type error code
-    * @param string $message error message
-    * @param string $file error file
-    * @param int $line error line
-    * @param array $context error context
-    * @return null
+    * @param int $type
+    * @param string $message
+    * @param string $file
+    * @param int $line
+    * @param array $context
     */
    public function handle(
        int $type,
@@ -64,22 +65,16 @@ interface HandlerInterface
        array $context = []);
 
    /**
-    * Shutdown method
-    *
     * @return null
     */
    public function shutdown();
 
    /**
-    * Register
-    *
     * @return HandlerInterface static
     */
    public function register(): self;
    
    /**
-    * Unregister
-    *
     * @return HandlerInterface static
     */
    public function unregister(): self;
