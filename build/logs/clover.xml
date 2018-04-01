@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1522450298">
-  <project timestamp="1522450298">
+<coverage generated="1522619871">
+  <project timestamp="1522619871">
     <package name="Seeren\Error">
       <file name="C:\xampp\htdocs\dev-master.seeren\error\src/AbstractHandler.php">
         <class name="Seeren\Error\AbstractHandler" namespace="Seeren\Error" fullPackage="Error" category="Seeren" package="Error">
