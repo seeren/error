@@ -36,7 +36,7 @@ class ErrorLogger extends AbstractHandler
      */
     public function __construct(LoggerInterface $logger)
     {
-        $this->logger = $logger ?? new Daily();
+        $this->logger = $logger;
         $this->level = new Level();
     }
 
