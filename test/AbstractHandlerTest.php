@@ -1,54 +1,70 @@
 <?php
 
-/**
- *     __
- *    / /__ __ __ __ __ __
- *   / // // // // // // /
- *  /_// // // // // // /
- *    /_//_//_//_//_//_/
- *
- * @author (c) Cyril Ichti <consultant@seeren.fr>
- * @link https://github.com/seeren/cache
- * @version 1.0.2
- */
-
 namespace Seeren\Error\Test;
 
+use PHPUnit\Framework\TestCase;
+use Seeren\Error\AbstractHandler;
 
-use Seeren\Error\HandlerInterface;
-
-/**
- * Class for test AbstractHandler
- * 
- * @category Seeren
- * @package Error
- * @subpackage Test
- * @abstract
- */
-abstract class AbstractHandlerTest extends \PHPUnit\Framework\TestCase
+class AbstractHandlerTest extends TestCase
 {
 
     /**
-     * @return HandlerInterface
+     * @covers \Seeren\Error\AbstractHandler::register
+     * @covers \Seeren\Error\AbstractHandler::unregister
      */
-   abstract protected function getHandler(): HandlerInterface;
+    public function testRegister(): void
+    {
+        $mock = $this->createMock(DummyHandler::class);
+        $mock->register();
+        $this->assertInstanceOf(
+            AbstractHandler::class,
+            set_error_handler(function () {
+            })[0]
+        );
+        $mock->unregister();
+    }
 
     /**
-     * Get errors
-     *
-     * @return array
+     * @covers \Seeren\Error\AbstractHandler::register
+     * @covers \Seeren\Error\AbstractHandler::unregister
      */
-   abstract protected function getErrors(): array;
+    public function testUnregister(): void
+    {
+        $mock = $this->createMock(DummyHandler::class);
+        $mock->register();
+        $mock->unregister();
+        $this->assertTrue(null !== set_error_handler(function () {
+            }));
+    }
 
-   /**
-    * Test handle
-    */
-   public function testHandle()
-   {
-       $handler = $this->getHandler();
-       $nErrors = count($this->getErrors());
-       $handler->handle(E_USER_ERROR, "message", "file", 44);
-       $this->assertTrue(++$nErrors  === count($this->getErrors()));
-   }
+    /**
+     * @covers \Seeren\Error\AbstractHandler::shutdown
+     */
+    public function testShutdown(): void
+    {
+        $mock = $this->createMock(DummyHandler::class);
+        $mock->expects($this->once())->method('handle');
+        $mock->shutdown([
+            AbstractHandler::TYPE => 0,
+            AbstractHandler::MESSAGE => 'message',
+            AbstractHandler::FILE => 'file',
+            AbstractHandler::LINE => 0,
+        ]);
+    }
+
+}
+
+class DummyHandler extends AbstractHandler
+{
+
+    public function handle(
+        int $type,
+        string $message,
+        string $file,
+        int $line,
+        array $context = []
+    ): void
+    {
+    }
 
 }
