@@ -1,82 +1,56 @@
 <?php
 
+namespace Seeren\Error;
+
 /**
+ * Interface to Handle errors
+ *
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @author (c) Cyril Ichti <consultant@seeren.fr>
- * @link https://github.com/seeren/error
- * @version 1.0.2
- */
-
-namespace Seeren\Error;
-
-/**
- * Interface for handle error
- * 
- * @category Seeren
- * @package Error
+ * @package Seeren\Error
  */
 interface HandlerInterface
 {
 
-   const
+    const CONTEXT = "context";
 
-      /**
-       * @var string
-       */
-      CONTEXT = "context",
+    /**
+     * @var string
+     */
+    const FILE = 'file';
 
-      /**
-       * @var string
-       */
-      FILE    = "file",
+    /**
+     * @var string
+     */
+    const LINE = 'line';
 
-      /**
-       * @var string
-       */
-      LINE    = "line",
+    /**
+     * @var string
+     */
+    const MESSAGE = 'message';
 
-      /**
-       * @var string
-       */
-      MESSAGE = "message",
+    /**
+     * @var string
+     */
+    const TYPE = 'type';
 
-      /**
-       * @var string
-       */
-      TYPE    = "type";
+    /**
+     * @return $this
+     */
+    public function register(): self;
 
-   /**
-    * @param int $type
-    * @param string $message
-    * @param string $file
-    * @param int $line
-    * @param array $context
-    */
-   public function handle(
-       int $type,
-       string $message,
-       string $file,
-       int $line,
-       array $context = []);
+    /**
+     * @return $this
+     */
+    public function unregister(): self;
 
-   /**
-    * @return null
-    */
-   public function shutdown();
-
-   /**
-    * @return HandlerInterface static
-    */
-   public function register(): self;
-   
-   /**
-    * @return HandlerInterface static
-    */
-   public function unregister(): self;
+    /**
+     * @return void
+     */
+    public function shutdown(): void;
 
 }

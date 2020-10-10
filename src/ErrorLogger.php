@@ -1,72 +1,65 @@
 <?php
 
+namespace Seeren\Error;
+
+use Psr\Log\LoggerInterface;
+use Seeren\Log\Level;
+use Seeren\Log\LevelInterface;
+use Seeren\Log\Logger\Daily;
+
 /**
+ * Class to log errors
+ *
  *     __
  *    / /__ __ __ __ __ __
  *   / // // // // // // /
  *  /_// // // // // // /
  *    /_//_//_//_//_//_/
  *
- * @author (c) Cyril Ichti <consultant@seeren.fr>
- * @link https://github.com/seeren/error
- * @version 1.0.1
+ * @package Seeren\Error
  */
-
-namespace Seeren\Error;
-
-use Psr\Log\LoggerInterface;
-use Seeren\Log\LogLevelInterface;
-
-/**
- * Class for log error
- * 
- * @category Seeren
- * @package Error
- */
-class ErrorLogger extends AbstractHandler implements HandlerInterface
+class ErrorLogger extends AbstractHandler
 {
 
-   protected
-       /**
-        * @var LoggerInterface
-        */
-       $logger,
-       /**
-        * @var LogLevelInterface
-        */
-       $logLevel;
+    /**
+     * @var LoggerInterface
+     */
+    private LoggerInterface $logger;
 
     /**
-     * @param LoggerInterface $logger logger
-     * @param LogLevelInterface $logLevel log level
+     * @var LevelInterface
      */
-    public  function __construct(
-        LoggerInterface $logger,
-        LogLevelInterface $logLevel)
+    private LevelInterface $level;
+
+    /**
+     * @param LoggerInterface $logger
+     */
+    public function __construct(LoggerInterface $logger)
     {
-        parent::__construct();
-        $this->logger = $logger;
-        $this->logLevel = $logLevel;
+        $this->logger = $logger ?? new Daily();
+        $this->level = new Level();
     }
 
     /**
      * {@inheritDoc}
-     * @see \Seeren\Error\HandlerInterface::handle()
+     * @see HandlerInterface::handle()
      */
     public final function handle(
         int $type,
         string $message,
         string $file,
         int $line,
-        array $context = [])
+        array $context = []
+    ): void
     {
         $context[self::FILE] = $file;
         $context[self::LINE] = (string)$line;
-        $this->logger->{$this->logLevel->level($type)}(
+        $this->logger->{$this->level->level($type)}(
             $message
-          . " " . self::FILE . " {". self::FILE . "}"
-          . " " . self::LINE . " {". self::LINE . "}",
-            $context);
+            . ' in ' . self::FILE . ' {' . self::FILE . '}'
+            . ' at ' . self::LINE . ' {' . self::LINE . '}',
+            $context
+        );
     }
 
 }
