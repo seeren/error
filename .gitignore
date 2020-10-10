@@ -1,9 +1,6 @@
 /.idea/
-/.settings/
 /public/
 /vendor/
+/var/
 /.phpunit.result.cache
-/.buildpath
-/.project
 /composer.lock
-/phpunit.xml
