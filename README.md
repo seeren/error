@@ -25,9 +25,21 @@ use Seeren\Log\Logger\Daily;
 $error = new ErrorLogger(new Daily);
 ```
 
+With [Seeren\Log\Logger](https://github.com/seeren/log) by default, log folder is in /var/log
+
+```bash
+project/
+└─ var/
+   └─ log/
+```
+
 Register error handler
 
 ```php
+use Seeren\Error\ErrorLogger;
+use Seeren\Log\Logger\Daily;
+      
+$error = new ErrorLogger(new Daily);
 $error->register();
 ```
 
