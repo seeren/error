@@ -3,47 +3,24 @@
 namespace Seeren\Error;
 
 use Psr\Log\LoggerInterface;
-use Seeren\Log\Level;
-use Seeren\Log\LevelInterface;
+use Seeren\Log\LevelResolver;
+use Seeren\Log\LevelResolverInterface;
 use Seeren\Log\Logger\Daily;
 
-/**
- * Class to log errors
- *
- *     __
- *    / /__ __ __ __ __ __
- *   / // // // // // // /
- *  /_// // // // // // /
- *    /_//_//_//_//_//_/
- *
- * @package Seeren\Error
- */
-class ErrorLogger extends AbstractHandler
+class ErrorLogger extends AbstractErrorHandler
 {
 
-    /**
-     * @var LoggerInterface
-     */
     private LoggerInterface $logger;
 
-    /**
-     * @var LevelInterface
-     */
-    private LevelInterface $level;
+    private LevelResolverInterface $level;
 
-    /**
-     * @param LoggerInterface $logger
-     */
-    public function __construct(LoggerInterface $logger)
+    public function __construct( LoggerInterface $logger = null)
     {
-        $this->logger = $logger;
-        $this->level = new Level();
+        $this->logger = $logger ?? new Daily();
+        $this->level = new LevelResolver();
+        $this->register();
     }
 
-    /**
-     * {@inheritDoc}
-     * @see HandlerInterface::handle()
-     */
     public final function handle(
         int $type,
         string $message,
@@ -54,10 +31,10 @@ class ErrorLogger extends AbstractHandler
     {
         $context[self::FILE] = $file;
         $context[self::LINE] = (string)$line;
-        $this->logger->{$this->level->level($type)}(
+        $this->logger->{$this->level->getLevel($type)}(
             $message
-            . ' in ' . self::FILE . ' {' . self::FILE . '}'
-            . ' at ' . self::LINE . ' {' . self::LINE . '}',
+            . ' in ' . self::FILE . ' "{' . self::FILE . '}"'
+            . ' at ' . self::LINE . ' "{' . self::LINE . '}"',
             $context
         );
     }
