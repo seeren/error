@@ -1,10 +1,15 @@
-# Seeren\Error
+# Seeren\\Error
 
-[![Build Status](https://travis-ci.org/seeren/error.svg?branch=master)](https://travis-ci.org/seeren/error) [![Coverage Status](https://coveralls.io/repos/github/seeren/error/badge.svg?branch=master)](https://coveralls.io/github/seeren/error?branch=master) [![Packagist](https://img.shields.io/packagist/dt/seeren/error.svg)](https://packagist.org/packages/seeren/error/stats) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a0463fb5a084be5bda68e4e36d7c7ac)](https://www.codacy.com/app/seeren/error?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=seeren/error&amp;utm_campaign=Badge_Grade) [![Packagist](https://img.shields.io/packagist/v/seeren/error.svg)](https://packagist.org/packages/seeren/error#) [![Packagist](https://img.shields.io/packagist/l/seeren/log.svg)](LICENSE)
+[![Build](https://app.travis-ci.com/seeren/error.svg?branch=master)](https://app.travis-ci.com/seeren/error)
+[![Require](https://poser.pugx.org/seeren/error/require/php)](https://packagist.org/packages/seeren/error)
+[![Coverage](https://coveralls.io/repos/github/seeren/error/badge.svg?branch=master)](https://coveralls.io/github/seeren/error?branch=master)
+[![Download](https://img.shields.io/packagist/dt/seeren/error.svg)](https://packagist.org/packages/seeren/error/stats)
+[![Codacy](https://app.codacy.com/project/badge/Grade/baea2fa9ba704a80a6b693921af25cbd)](https://www.codacy.com/gh/seeren/error/dashboard?utm_source=github.com&utm_medium=referral&utm_content=seeren/error&utm_campaign=Badge_Grade)
+[![Version](https://img.shields.io/packagist/v/seeren/error.svg)](https://packagist.org/packages/seeren/error)
 
-Replace default PHP error handler: handle and log errors
+Handle and Log errors
 
-___
+* * *
 
 ## Installation
 
@@ -12,20 +17,19 @@ ___
 composer require seeren/error
 ```
 
-___
+* * *
 
-### Seeren\Error\ErrorLogger
+### Seeren\\Error\\ErrorLogger
 
 Provide a `Psr\Log\LoggerInterface` at construction
 
 ```php
 use Seeren\Error\ErrorLogger;
-use Seeren\Log\Logger\Daily;
 
-$error = new ErrorLogger(new Daily);
+$errorHandler = new ErrorLogger();
 ```
 
-With [Seeren\Log\Logger](https://github.com/seeren/log) by default, log folder is in /var/log
+Default logger is [Seeren\\Log\\Logger\\Daily](https://github.com/seeren/log), log folder is in `/var/log`
 
 ```bash
 project/
@@ -33,19 +37,16 @@ project/
    └─ log/
 ```
 
-Register error handler
+Prs-3 implementations can be used to log errors.
 
 ```php
-use Seeren\Error\ErrorLogger;
-use Seeren\Log\Logger\Daily;
-      
-$error = new ErrorLogger(new Daily);
-$error->register();
+new \Seeren\Error\ErrorLogger($psr3Logger);
 ```
 
 Default PHP error handler will not display messages and every `debug`, `info`, `notice`, `warning`, `errors` will be logged
 
-___
+* * *
 
 ## License
-This project is licensed under the MIT License
+
+This project is licensed under the [MIT](./LICENSE) License
