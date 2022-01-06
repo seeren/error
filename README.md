@@ -37,7 +37,7 @@ project/
    └─ log/
 ```
 
-Prs-3 implementations can be used to log errors.
+Prs-3 implementations can be used to log errors
 
 ```php
 new \Seeren\Error\ErrorLogger($psr3Logger);
