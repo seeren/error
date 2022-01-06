@@ -21,7 +21,7 @@ composer require seeren/error
 
 ### Seeren\\Error\\ErrorLogger
 
-Provide a `Psr\Log\LoggerInterface` at construction
+Error logger is registred at construction
 
 ```php
 use Seeren\Error\ErrorLogger;
